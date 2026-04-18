@@ -1,0 +1,171 @@
+/* Custom styles for ResourceTool Wiki — Plume Theme */
+
+/* =============================================
+   Hero name gradient — brand blue → deep blue → orange
+   ============================================= */
+:root {
+  /* Brand color — bright blue matching logo RT text */
+  --vp-c-turquoise-1: #2563eb;
+  --vp-c-turquoise-2: #3b82f6;
+  --vp-c-turquoise-3: #4a8ff7;
+  --vp-c-turquoise-soft: rgb(59 130 246 / 0.14);
+
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #4a8ff7;
+  --vp-c-brand-soft: rgb(59 130 246 / 0.14);
+
+  /* Hero name gradient — blue to purple like logo */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    135deg,
+    #3b82f6 0%,
+    #4f46e5 50%,
+    #7c3aed 100%
+  );
+  --vp-home-hero-tagline: var(--vp-c-text-2);
+  --vp-home-hero-text: var(--vp-c-text-1);
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(59, 130, 246, 0.15) 50%,
+    rgba(139, 92, 246, 0.15) 50%
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+/* Hero section — more vertical spacing */
+.vp-doc-hero {
+  padding-top: 100px !important;
+  padding-bottom: 80px !important;
+}
+
+.vp-doc-hero .name {
+  margin-bottom: 20px;
+}
+
+.vp-doc-hero .text {
+  line-height: 1.6;
+}
+
+.vp-doc-hero .tagline {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.vp-doc-hero .actions {
+  margin-top: 28px;
+}
+
+[data-theme="dark"] {
+  --vp-c-turquoise-1: #60a5fa;
+  --vp-c-turquoise-2: #3b82f6;
+  --vp-c-turquoise-3: #2563eb;
+  --vp-c-turquoise-soft: rgb(96 165 250 / 0.16);
+
+  --vp-c-brand-1: #60a5fa;
+  --vp-c-brand-2: #3b82f6;
+  --vp-c-brand-3: #2563eb;
+  --vp-c-brand-soft: rgb(96 165 250 / 0.16);
+}
+
+/* =============================================
+   Smooth scrolling — only for anchor clicks, not page load
+   ============================================= */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+/* =============================================
+   Feature cards — icon fix + hover polish
+   ============================================= */
+
+/* Fix icon clipping and ensure proper sizing */
+.vp-feature-box .vp-feature-icon {
+  width: 48px !important;
+  height: 48px !important;
+  overflow: visible !important;
+}
+
+.vp-feature-box .vp-feature-icon .vp-icon {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.vp-feature-box .vp-feature-icon img,
+.vp-feature-box .vp-feature-icon svg {
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: contain !important;
+}
+
+/* Card hover effect */
+@media (prefers-reduced-motion: no-preference) {
+  .vp-feature-box {
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .vp-feature-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(91, 106, 191, 0.15);
+    border-color: var(--vp-c-brand-1);
+  }
+}
+
+html[data-theme="dark"] .vp-feature-box:hover {
+  box-shadow: 0 12px 32px rgba(147, 163, 248, 0.12);
+}
+
+/* Feature title bold */
+.vp-feature-box .vp-feature-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* Feature details color */
+.vp-feature-box .vp-feature-details {
+  line-height: 1.7;
+}
+
+/* =============================================
+   Content area enhancements
+   ============================================= */
+
+/* Tip / Warning / Info containers */
+.vp-container {
+  border-radius: 8px;
+}
+
+/* Code blocks */
+div[class*="language-"] {
+  border-radius: 8px;
+}
+
+/* Tables */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* =============================================
+   Sidebar icon sizing
+   ============================================= */
+.vp-sidebar .vp-icon {
+  font-size: 1.1em;
+}
+
+/* =============================================
+   Navbar — slightly bolder brand
+   ============================================= */
+.vp-site-name {
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+
+/* =============================================
+   Homepage text-image section polish
+   ============================================= */
+.vp-home-box .vp-text-image .vp-icon {
+  color: var(--vp-c-brand-1);
+}
