@@ -50,6 +50,7 @@ export default defineThemeConfig({
         { text: "快速开始", link: "quick-start" },
         { text: "升级指南", link: "upgrade" },
         { text: "免责声明", link: "disclaimer" },
+        { text: "更新日志", link: "changelog" },
       ],
     },
     {

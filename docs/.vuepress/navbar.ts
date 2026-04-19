@@ -78,4 +78,5 @@ export default defineNavbarConfig([
     ],
   },
   { text: "FAQ", link: "/faq/", icon: "material-symbols:help" },
+  { text: "更新日志", link: "/guide/changelog/", icon: "material-symbols:update" },
 ]);
