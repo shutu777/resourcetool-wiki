@@ -10,6 +10,17 @@ permalink: /guide/changelog/
 
 ---
 
+## v1.6.3.1
+
+> 📅 2025-04-19
+
+### 🎨 界面优化
+
+- **活跃会话版本号**：播放中的会话卡片现在显示客户端完整版本号（如 `Infuse-Direct 7.8.1 · Apple TV`），之前仅显示客户端名称
+- **版本号跳转 Wiki**：右上角版本号徽章点击后在新标签页打开 [ResourceTool Wiki](https://shutu777.github.io/resourcetool-wiki/)，方便快速查阅文档
+
+---
+
 ## v1.6.3
 
 > 📅 2025-04-19
