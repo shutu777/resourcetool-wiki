@@ -23,17 +23,13 @@ export default defineNavbarConfig([
           { text: "Emby 助手", link: "/features/emby302", icon: "material-symbols:play-circle" },
           { text: "115 助手", link: "/features/pan115-config", icon: "material-symbols:cloud" },
           { text: "缓存管理", link: "/features/emby302-cache", icon: "material-symbols:database" },
+          { text: "预缓存", link: "/features/precache", icon: "material-symbols:cached" },
         ],
       },
       {
         text: "插件库",
         items: [
-          { text: "115 健康检查", link: "/features/plugin-115-health", icon: "material-symbols:health-and-safety" },
-          { text: "115 签到", link: "/features/plugin-115-checkin", icon: "material-symbols:event-available" },
-          { text: "CloudDrive2 助手", link: "/features/plugin-cd2", icon: "material-symbols:cloud-sync" },
-          { text: "HDHive 签到", link: "/features/plugin-hdhive-checkin", icon: "material-symbols:stars" },
-          { text: "Telegram 助手", link: "/features/plugin-telegram-config", icon: "material-symbols:send" },
-          { text: "Telegram 签到", link: "/features/plugin-telegram-checkin", icon: "material-symbols:schedule-send" },
+          { text: "插件库", link: "/features/plugins", icon: "material-symbols:extension" },
         ],
       },
       {
@@ -48,10 +44,13 @@ export default defineNavbarConfig([
         text: "开服",
         items: [
           { text: "Emby 用户", link: "/features/emby-user-mgmt", icon: "material-symbols:manage-accounts" },
+          { text: "实例管理", link: "/features/emby-instances", icon: "material-symbols:dns" },
           { text: "访问线路", link: "/features/emby-lines", icon: "material-symbols:link" },
           { text: "活跃设备", link: "/features/emby-sessions", icon: "material-symbols:tv" },
           { text: "公告管理", link: "/features/announcements", icon: "material-symbols:campaign" },
           { text: "邀请码", link: "/features/activation-codes", icon: "material-symbols:confirmation-number" },
+          { text: "求片管理", link: "/features/media-requests", icon: "material-symbols:movie-filter" },
+          { text: "签到与积分", link: "/features/checkin-points", icon: "material-symbols:toll" },
           { text: "开服配置", link: "/features/emby-security", icon: "material-symbols:security" },
         ],
       },
