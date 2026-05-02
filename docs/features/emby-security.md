@@ -115,5 +115,16 @@ permalink: /features/emby-security/
 - 管理员账号自动跳过设备流控
 - 仅限制登录和播放，浏览媒体库不受影响
 - 设备空闲 5 分钟后，新设备可自动替换旧设备
-- 可在 [Emby 用户](emby-user-mgmt.md) 中为每个用户单独覆盖设备上限
+- 可在 [Emby 用户](/features/emby-users/) 中为每个用户单独覆盖设备上限
+
+---
+
+## 功能关联
+
+| 功能 | 关联文档 |
+|------|---------|
+| 邀请码配置 | [公告与邀请码](/features/emby-codes/) |
+| 设备流控详情 | [Emby 302 直链播放](/features/emby302/) |
+| 用户管理 | [Emby 用户管理](/features/emby-users/) |
+| 实例配置 | [实例与 Bot 管理](/features/emby-instances/) |
 :::

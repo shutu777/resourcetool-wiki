@@ -1,7 +1,7 @@
 ---
 title: Emby 用户
 createTime: 2026/04/18 17:46:22
-permalink: /features/zojquigp/
+permalink: /features/emby-users/
 ---
 
 # Emby 用户
@@ -134,4 +134,16 @@ permalink: /features/zojquigp/
 - **已有用户** — 仅同步启用/禁用状态，**不覆盖**已有权限设置（包括媒体库访问权限、字幕偏好等）
 
 这是为了避免管理员在 Emby 后台手动调整过的个性化权限被覆盖。
+
+---
+
+## 功能关联
+
+| 功能 | 关联文档 |
+|------|---------|
+| 实例配置 | [实例与 Bot 管理](/features/emby-instances/) |
+| 设备流控 | [Emby 302 直链播放](/features/emby302/) |
+| 开服注册策略 | [开服安全配置](/features/emby-security/) |
+| 邀请码 | [公告与邀请码](/features/emby-codes/) |
+| 签到积分 | [签到与积分系统](/features/emby-checkin/) |
 :::

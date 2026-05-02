@@ -1,7 +1,7 @@
 ---
 title: 升级指南
 createTime: 2026/04/18 17:42:46
-permalink: /guide/1bslpjv6/
+permalink: /guide/upgrade/
 ---
 
 # 升级指南

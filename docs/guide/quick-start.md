@@ -1,12 +1,64 @@
 ---
 title: 快速开始
-createTime: 2026/04/18 17:42:20
-permalink: /guide/pd2mg2va/
+createTime: 2026/05/02
+permalink: /guide/quick-start/
 ---
 
 # 快速开始
 
-本页面将指导你在 5 分钟内完成 ResourceTool 的部署。
+## 什么是 ResourceTool？
+
+ResourceTool 是一款**一站式影视资源自动化管理平台**，集成 HDHive 搜索、Telegram 频道监控、115 网盘自动转存和 Emby 302 直链播放服务。
+
+它帮助影视爱好者实现从**资源发现 → 自动转存 → 直链播放**的全流程自动化。
+
+::: important
+ResourceTool 只是一个自动化工具，**不提供任何影视资源**。
+:::
+
+### 授权与售价
+
+ResourceTool 采用付费授权模式，按功能分为两个版本：
+
+| 版本 | 价格 | 功能范围 |
+|------|------|---------|
+| **基础版** | ¥129 | HDHive 搜刮、Telegram 频道监控与转存、115 网盘自动管理、Emby 302 直链播放、系统管理 |
+| **开服版** | ¥299 | 包含基础版全部功能 + Emby 运营管理（用户管理、Bot 交互、签到积分、邀请码、设备流控、求片系统、多线路、漏洞拦截、防攻击等） |
+
+::: tip 授权说明
+- 基础版授权码即可使用核心搜刮和播放功能，适合个人或家庭自用
+- 开服版在基础版之上解锁完整的 Emby 运营套件，适合对外提供服务的场景
+- 授权码绑定设备，购买后可找管理员换绑
+:::
+
+### 核心能力
+
+:::: card-grid
+::: card title="影视搜索" icon="material-symbols:search"
+集成 TMDB + HDHive Open API，一站式搜索、解锁、转存。多 HDHive 用户智能调度，Bot 内即时推送。
+:::
+::: card title="Telegram 自动化" icon="material-symbols:cell-tower"
+MTProto Session 实时监听频道，多源多目标转发，关键词过滤，HDHive 自动解锁。
+:::
+::: card title="115 自动转存" icon="material-symbols:cloud-download"
+自动识别 115 分享链接、magnet、ed2k，3 秒防抖合并，每个频道独立转存目录。
+:::
+::: card title="Emby 302 直链播放" icon="material-symbols:play-circle"
+路径替换 + Pickcode 双模式，CD2 gRPC 毫秒级响应，预缓存零延迟，多用户并发播放。
+:::
+::: card title="Emby 开服管理" icon="material-symbols:manage-accounts"
+用户管理、激活码、设备流控、自备 Cookie、多线路配置与积分签到系统。
+:::
+::: card title="系统管理" icon="material-symbols:settings"
+JWT 权限控制，HTTP/SOCKS5 代理智能分流，一键配置导入导出，日志按天轮转。
+:::
+::::
+
+---
+
+## 部署
+
+本页面将指导你在 5 分钟内完成 ResourceTool 的 Docker 部署。
 
 ::: important 前置要求
 - 一台 Linux 服务器（推荐 Ubuntu 20.04+）或 NAS 设备
@@ -22,9 +74,7 @@ curl -fsSL https://get.docker.com | sh
 ```
 :::
 
-## 环境变量说明
-
-以下是 `docker-compose.yml` 中用到的环境变量：
+### 环境变量说明
 
 | 变量名 | 说明 | 默认值 |
 |--------|------|--------|
@@ -42,7 +92,7 @@ curl -fsSL https://get.docker.com | sh
 | `RESOURCE_JWT_SECRET` | JWT 签名密钥（留空自动生成） | 自动生成 |
 :::
 
-## 部署
+### 部署步骤
 
 ::: important 建议使用 Docker Compose 方式部署，便于管理和维护。
 :::
@@ -107,7 +157,9 @@ docker run -d \
 ```
 :::
 
-## 访问面板
+---
+
+## 首次访问
 
 浏览器打开 `http://你的服务器IP:29999`，默认管理员账号：
 
@@ -117,38 +169,45 @@ docker run -d \
 | 密码 | `admin` |
 
 ::: caution 安全提示
-首次登录后请立即修改默认密码！在个人资料页面可以修改用户名和密码。
+首次登录后请立即修改默认密码！在右上角头像下拉 → 个人资料页面可以修改用户名和密码。
 :::
 
-## 端口说明
+### 端口说明
 
 | 端口 | 用途 |
 |------|------|
 | `29999` | Web 管理面板（Caddy 反代） |
 | `29998` | 后端 API 端口（内部使用） |
-| Emby 302 端口 | 在 Emby 302 配置中设定 |
+| Emby 302 端口 | 在 Emby 302 配置中自行设定 |
 
 ::: info 网络模式
 默认使用 `network_mode: host`，容器直接使用宿主机网络。如需 bridge 模式，请自行映射端口。
 :::
 
-::: steps
+### 初始化检查
 
 1. 访问 `http://IP:29999` 确认面板可用
-
 2. 登录后查看仪表盘，确认各模块状态
-
 3. 在系统配置中测试代理连接（如已配置）
-
 4. 在 115 配置中验证 Cookie 有效性
 
-:::
+---
+
+## 下一步
+
+部署完成后，按照以下顺序逐步配置各功能模块：
+
+1. **[115 云盘配置](/features/pan115/)** — 添加 115 账号，配置转存和自动签到
+2. **[HDHive 搜刮](/features/hdhive/)** — 添加 API Key，配置负载均衡和自动签到
+3. **[Telegram 集成](/features/telegram/)** — 配置 Bot 和 Session，搭建频道监控
+4. **[Emby 302 直链播放](/features/emby302/)** — 创建 Emby 实例，配置直链播放
+
+---
 
 ## 常见部署问题
 
 ::: details 端口被占用
 ```bash
-# 查看端口占用
 ss -tlnp | grep 29999
 # 或
 netstat -tlnp | grep 29999
@@ -157,7 +216,6 @@ netstat -tlnp | grep 29999
 
 ::: details 容器无法启动
 ```bash
-# 查看容器日志
 docker logs resource-tool
 ```
 :::
@@ -167,3 +225,23 @@ docker logs resource-tool
 - 检查云服务器安全组规则
 - 确认 `network_mode: host` 配置正确
 :::
+
+---
+
+## 免责声明
+
+::: warning 请仔细阅读
+1. **资源来源** — 所有通过本工具搜索、转存、播放的内容均来自第三方平台（如 115 网盘、HDHive、Telegram 频道等），与本项目无关
+2. **合法使用** — 用户应自行确保使用本工具的行为符合当地法律法规，因违规使用产生的一切后果由用户自行承担
+3. **版权责任** — 用户在使用本工具过程中涉及的所有版权问题，由用户自行与版权方协商解决
+4. **无担保** — 本软件按"原样"提供，不提供任何明示或暗示的担保
+5. **服务中断** — 由于第三方 API 变更、网络故障等原因导致的服务中断，本项目不承担任何责任
+:::
+
+::: danger 禁止行为
+- 请勿将本工具用于任何商业用途
+- 请勿在任何平台售卖本工具或提供有偿部署服务
+- 请尊重原创内容版权，支持正版
+:::
+
+版权归属：ResourceTool | 许可证：[署名 4.0 国际 (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/deed.zh-hans)

@@ -1,7 +1,7 @@
 ---
 title: 签到与积分
 createTime: 2025/04/11 12:00:00
-permalink: /features/checkin-points/
+permalink: /features/emby-checkin/
 ---
 
 # 签到与积分
@@ -208,3 +208,13 @@ Bot 的 `/start` 命令会显示多级内联键盘菜单，按用户身份动态
 
 ::: info 所有菜单按钮统一为两个一排的布局，移动端操作更友好。
 :::
+
+---
+
+## 功能关联
+
+| 功能 | 关联文档 |
+|------|---------|
+| 实例运营模式配置 | [实例与 Bot 管理](/features/emby-instances/) |
+| 用户管理 | [Emby 用户管理](/features/emby-users/) |
+| 到期扫描联动 | [开服安全配置](/features/emby-security/) |

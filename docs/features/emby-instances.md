@@ -192,5 +192,17 @@ permalink: /features/emby-instances/
 | **剧集求片限制** | 每 7 天最多 3 次 | 限制周期内每用户最多提交的剧集求片次数，填 0 不限制 |
 
 ::: tip 求片管理
-开启求片后，管理后台会出现「求片管理」页面，详见 [求片系统](media-requests.md)。
+开启求片后，管理后台会出现「求片管理」页面，详见 [求片系统](/features/emby-requests/)。
+
+---
+
+## 功能关联
+
+| 功能 | 关联文档 |
+|------|---------|
+| Emby 302 实例创建 | [Emby 302 直链播放](/features/emby302/) |
+| 用户管理 | [Emby 用户管理](/features/emby-users/) |
+| 签到积分详情 | [签到与积分系统](/features/emby-checkin/) |
+| 求片管理详情 | [求片系统](/features/emby-requests/) |
+| 注册与安全 | [开服安全配置](/features/emby-security/) |
 :::
