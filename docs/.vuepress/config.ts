@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import { plumeTheme } from "vuepress-theme-plume";
 
 export default defineUserConfig({
-  base: "/resourcetool-wiki/",
+  base: "/",
   lang: "zh-CN",
   title: "ResourceTool Wiki",
   description: "ResourceTool 官方文档 — 一站式影视资源自动化管理平台",
