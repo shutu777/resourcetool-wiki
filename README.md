@@ -4,7 +4,7 @@ ResourceTool 官方文档站点，基于 [VuePress 2](https://v2.vuepress.vuejs.
 
 ## 在线访问
 
-部署在 GitHub Pages 上，访问地址：[https://shutu777.github.io/resourcetool-wiki/](https://shutu777.github.io/resourcetool-wiki/)
+部署在 GitHub Pages 上，访问地址：[https://wiki.resourcetool.pro/](https://wiki.resourcetool.pro/)
 
 ## 本地开发
 
