@@ -24,7 +24,7 @@ ResourceTool 内置三个独立的 Telegram Bot，需要在 [@BotFather](https:/
 :::
 ::::
 
-### 主 Bot
+### 主 Bot（telegram 助手）
 
 ![prerequisites-20260523141233952](/images/prerequisites-20260523141233952.png)
 
@@ -105,7 +105,7 @@ ResourceTool 内置三个独立的 Telegram Bot，需要在 [@BotFather](https:/
 - 配置阿里、百度网盘助手后，可联动处理对应资源转存
 - 转存完成通知自动路由到副 Bot 的关联用户，不会混乱
 
-### Emby Bot
+### Emby Bot（实例配置）
 
 ![prerequisites-20260523141502162](/images/prerequisites-20260523141502162.png)
 
