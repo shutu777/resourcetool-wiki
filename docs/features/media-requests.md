@@ -125,6 +125,6 @@ permalink: /features/emby-requests/
 | 功能 | 关联文档 |
 |------|---------|
 | 求片开关配置 | [实例与 Bot 管理](/features/emby-instances/) |
-| Emby Bot 命令 | [Emby 302 直链播放](/features/emby302/) |
+| Emby Bot 命令 | [Emby 播放全场景](/features/emby302/) |
 | 用户管理 | [Emby 用户管理](/features/emby-users/) |
 :::

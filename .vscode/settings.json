@@ -1,0 +1,13 @@
+{
+  "markdown.copyFiles.destination": {
+    "**/*.md": "/docs/.vuepress/public/images/${documentBaseName}-${fileName}"
+  },
+  "pasteImage.path": "${projectRoot}/docs/.vuepress/public/images",
+  "pasteImage.basePath": "${projectRoot}/docs/.vuepress/public",
+  "pasteImage.prefix": "/",
+  "pasteImage.forceUnixStyleSeparator": true,
+  "pasteImage.encodePath": "urlEncodeSpace",
+  "pasteImage.namePrefix": "${currentFileNameWithoutExt}-",
+  "pasteImage.defaultName": "YYYYMMDDHHmmssSSS",
+  "pasteImage.insertPattern": "![${imageFileNameWithoutExt}](${imageFilePath})"
+}

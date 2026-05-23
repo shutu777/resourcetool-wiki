@@ -8,7 +8,7 @@ permalink: /guide/quick-start/
 
 ## 什么是 ResourceTool？
 
-ResourceTool 是一款**一站式影视资源自动化管理平台**，集成 HDHive 搜索、Telegram 频道监控、115 网盘自动转存和 Emby 302 直链播放服务。
+ResourceTool 是一款**一站式影视资源自动化管理平台**，集成 HDHive 搜索、Telegram 频道监控、115 网盘自动转存和 Emby 播放网关服务。
 
 它帮助影视爱好者实现从**资源发现 → 自动转存 → 直链播放**的全流程自动化。
 
@@ -22,8 +22,8 @@ ResourceTool 采用付费授权模式，按功能分为两个版本：
 
 | 版本 | 价格 | 功能范围 |
 |------|------|---------|
-| **基础版** | ¥129 | HDHive 搜刮、Telegram 频道监控与转存、115 网盘自动管理、Emby 302 直链播放、系统管理 |
-| **开服版** | ¥299 | 包含基础版全部功能 + Emby 运营管理（用户管理、Bot 交互、签到积分、邀请码、设备流控、求片系统、多线路、漏洞拦截、防攻击等） |
+| **基础版** | ¥129 | HDHive 搜刮、Telegram 频道监控与转存、115 网盘自动管理、Emby 播放网关、系统管理 |
+| **开服版** | ¥299 | 包含基础版全部功能 + Emby 运营管理（用户管理、用户面板、权限模板、媒体库管控、Bot 交互、签到积分、邀请码、设备流控、求片系统、多线路、生命周期任务、防攻击等） |
 
 ::: tip 授权说明
 - 基础版授权码即可使用核心搜刮和播放功能，适合个人或家庭自用
@@ -35,22 +35,22 @@ ResourceTool 采用付费授权模式，按功能分为两个版本：
 
 :::: card-grid
 ::: card title="影视搜索" icon="material-symbols:search"
-集成 TMDB + HDHive Open API，一站式搜索、解锁、转存。多 HDHive 用户智能调度，Bot 内即时推送。
+集成 TMDB + HDHive 中心网关，一站式搜索、解锁、转存。授权用户智能调度，Bot 内即时推送。
 :::
 ::: card title="Telegram 自动化" icon="material-symbols:cell-tower"
 MTProto Session 实时监听频道，多源多目标转发，关键词过滤，HDHive 自动解锁。
 :::
 ::: card title="115 自动转存" icon="material-symbols:cloud-download"
-自动识别 115 分享链接、magnet、ed2k，3 秒防抖合并，每个频道独立转存目录。
+支持 115 扫码登录、VIP/容量检测，自动识别 115 分享链接、magnet、ed2k，每个频道独立转存目录。
 :::
-::: card title="Emby 302 直链播放" icon="material-symbols:play-circle"
-路径替换 + Pickcode 双模式，CD2 gRPC 毫秒级响应，预缓存零延迟，多用户并发播放。
+::: card title="Emby 播放全场景" icon="material-symbols:play-circle"
+按 STRM 类型和网盘模式自动分流，覆盖路径、Pickcode、分享、自备、同播复制和原生兜底。
 :::
 ::: card title="Emby 开服管理" icon="material-symbols:manage-accounts"
-用户管理、激活码、设备流控、自备 Cookie、多线路配置与积分签到系统。
+用户管理、权限模板、媒体库管控、生命周期任务、自备 Cookie、多线路配置与积分签到系统。
 :::
 ::: card title="系统管理" icon="material-symbols:settings"
-JWT 权限控制，HTTP/SOCKS5 代理智能分流，一键配置导入导出，日志按天轮转。
+JWT 权限控制，HTTP/SOCKS5 代理智能分流，HDHive 网关接入，备份还原，日志按天轮转。
 :::
 ::::
 
@@ -90,6 +90,10 @@ curl -fsSL https://get.docker.com | sh
 | `RESOURCE_WEB_PORT` | Web 面板端口（Caddy） | `29999` |
 | `RESOURCE_DB_PATH` | SQLite 数据库路径 | `/data/resourcetool.db` |
 | `RESOURCE_JWT_SECRET` | JWT 签名密钥（留空自动生成） | 自动生成 |
+| `RESOURCE_TRUSTED_PROXIES` | 可信反代 IP，逗号分隔 | `127.0.0.1,::1` |
+| `RESOURCE_GOMAXPROCS` | Go 最大 CPU 线程数 | 自动 |
+| `RESOURCE_GOMEMLIMIT` | Go 运行时软内存上限 | 按环境变量 |
+| `RESOURCE_MAX_THREADS` | Go 最大 OS 线程数 | 默认运行时策略 |
 :::
 
 ### 部署步骤
@@ -114,8 +118,9 @@ curl -fsSL https://get.docker.com | sh
        container_name: resource-tool
        restart: always
        network_mode: host
-       volumes:
-         - ./data:/data
+      volumes:
+        - ./data:/data
+        - /var/run/docker.sock:/var/run/docker.sock
        environment:
          - TZ=Asia/Shanghai
          - RESOURCE_LICENSE=你的授权码
@@ -125,6 +130,10 @@ curl -fsSL https://get.docker.com | sh
 
    ::: caution 数据持久化
    务必将 `/data` 目录挂载到宿主机，否则容器重建后数据库和配置将丢失。
+   :::
+
+   ::: tip Docker Socket
+   如果需要容器监控、Emby 内存自动管理等功能，建议挂载 `/var/run/docker.sock`。不使用这些能力时可以移除该挂载。
    :::
 
 3. 启动服务
@@ -149,6 +158,7 @@ docker run -d \
   --restart always \
   --network host \
   -v /opt/resource-tool/data:/data \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   -e TZ=Asia/Shanghai \
   -e RESOURCE_LICENSE=你的授权码 \
   -e GOMEMLIMIT=256MiB \
@@ -189,7 +199,8 @@ docker run -d \
 1. 访问 `http://IP:29999` 确认面板可用
 2. 登录后查看仪表盘，确认各模块状态
 3. 在系统配置中测试代理连接（如已配置）
-4. 在 115 配置中验证 Cookie 有效性
+4. 在插件库/助手中接入 115、HDHive、Telegram 等插件能力
+5. 在 115 助手中验证 Cookie、VIP 状态和容量信息
 
 ---
 
@@ -198,9 +209,10 @@ docker run -d \
 部署完成后，按照以下顺序逐步配置各功能模块：
 
 1. **[115 云盘配置](/features/pan115/)** — 添加 115 账号，配置转存和自动签到
-2. **[HDHive 搜刮](/features/hdhive/)** — 添加 API Key，配置负载均衡和自动签到
+2. **[HDHive 助手](/features/hdhive/)** — 配置中心网关授权、负载均衡和自动签到
 3. **[Telegram 集成](/features/telegram/)** — 配置 Bot 和 Session，搭建频道监控
-4. **[Emby 302 直链播放](/features/emby302/)** — 创建 Emby 实例，配置直链播放
+4. **[Emby 播放全场景](/features/emby302/)** — 创建 Emby 实例，配置 STRM 分流和网盘模式
+5. **[系统管理](/features/system/)** — 配置备份还原、品牌定制、用户权限和日志查看
 
 ---
 

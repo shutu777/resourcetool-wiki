@@ -102,5 +102,5 @@ permalink: /features/emby-lines/
 
 | 功能 | 关联文档 |
 |------|---------|
-| 设备流控 | [Emby 302 直链播放](/features/emby302/) |
+| 设备流控 | [Emby 播放全场景](/features/emby302/#设备流控与-ua-屏蔽) |
 | 实例配置 | [实例与 Bot 管理](/features/emby-instances/) |

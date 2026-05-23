@@ -148,6 +148,13 @@ table {
   overflow: hidden;
 }
 
+/* Avoid doubled separators and oversized gaps after a manual `---`. */
+.vp-doc hr + h2 {
+  border-top: 0;
+  margin-top: 24px;
+  padding-top: 0;
+}
+
 /* =============================================
    Sidebar icon sizing
    ============================================= */

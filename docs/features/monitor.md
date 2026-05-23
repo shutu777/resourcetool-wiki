@@ -53,5 +53,5 @@ https://你的域名/monitor/<64位Token>
 
 | 功能 | 关联文档 |
 |------|---------|
-| Emby 实例配置 | [Emby 302 直链播放](/features/emby302/) |
-| 容器监控 | [Emby 302 - 步骤 9](/features/emby302/#步骤-9配置容器监控) |
+| Emby 实例配置 | [Emby 播放全场景](/features/emby302/) |
+| 容器监控 | [Emby 播放全场景 - 关联能力](/features/emby302/#关联能力) |

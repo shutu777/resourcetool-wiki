@@ -14,8 +14,8 @@ config:
         - text: 快速开始
           link: /guide/quick-start
           theme: brand
-        - text: 项目介绍
-          link: /guide/intro
+        - text: 使用须知
+          link: /guide/prerequisites
           theme: alt
 
   - type: features
@@ -24,41 +24,41 @@ config:
     features:
       - title: HDHive 影视搜索
         icon: flat-color-icons:search
-        details: TMDB + HDHive API 一站式搜索解锁，多用户多重智能负载均衡
-        link: /features/hdhive-search
+        details: TMDB + HDHive 中心网关一站式搜索解锁，授权用户智能负载均衡
+        link: /features/hdhive
 
       - title: Telegram 频道监控
         icon: flat-color-icons:voice-presentation
         details: MTProto 实时监听新消息与编辑消息，多源多目标转发，黑白名单过滤
-        link: /features/channel-monitor
+        link: /features/telegram
 
       - title: 115 网盘自动转存
         icon: flat-color-icons:download
-        details: 自动识别 115分享/magnet/ed2k 链接，智能全局防抖，入队自动转存
-        link: /features/pan115-transfer
+        details: 扫码登录、VIP/容量检测，自动识别 115 分享/magnet/ed2k 链接并入队转存
+        link: /features/pan115
 
-      - title: Emby 302 直链
+      - title: Emby 播放全场景
         icon: flat-color-icons:start
-        details: 路径替换 + Pickcode 双模式，CD2 gRPC 加速，302 重定向播放
+        details: 按 STRM 类型和网盘模式自动分流，覆盖路径、Pickcode、分享、自备和原生播放
         link: /features/emby302
 
-      - title: Telegram Bot
+      - title: 插件化助手
         icon: flat-color-icons:smartphone-tablet
-        details: 搜索影视，手动转发自动匹配规则，智能去重，转存完成实时通知
-        link: /features/telegram-bot
+        details: 115、HDHive、Telegram、CloudDrive2、飞牛 OS 等能力集中在插件库管理
+        link: /features/system
 
-      - title: 设备流控
+      - title: 开服运营
         icon: flat-color-icons:lock
-        details: 限制每用户在线设备数，双层超时，平滑过渡，防止恶意攻击
-        link: /features/device-control
+        details: 注册审核、生命周期任务、设备流控、媒体库管控、权限模板和自助面板
+        link: /features/emby-users
 
       - title: Emby 用户管理
         icon: flat-color-icons:conference-call
-        details: 开服管理、激活码、到期自动禁用，支持共享模式与自备 Cookie 模式
-        link: /features/emby-user-mgmt
+        details: 多实例用户、115 账号筛选、CSV 导入、批量模板、到期与活跃度管理
+        link: /features/emby-users
 
       - title: 系统管理
         icon: flat-color-icons:services
-        details: JWT 双角色权限，智能分流代理，TMDB Key 配置，按天轮转日志
-        link: /features/system-config
+        details: 授权、代理、TMDB、HDHive 网关、品牌定制、备份还原和系统日志
+        link: /features/system
 ---

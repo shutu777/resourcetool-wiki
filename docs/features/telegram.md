@@ -283,4 +283,4 @@ Bot 发送转存成功/失败通知 → 用户在 Emby 中直接播放
 |------|---------|
 | Bot 搜索影视 | [HDHive 搜刮](/features/hdhive/) |
 | 链接转存到 115 | [115 云盘配置](/features/pan115/) |
-| Emby 播放 | [Emby 302 直链播放](/features/emby302/) |
+| Emby 播放 | [Emby 播放全场景](/features/emby302/) |
