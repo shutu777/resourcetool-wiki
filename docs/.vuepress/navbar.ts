@@ -33,6 +33,7 @@ export default defineNavbarConfig([
           { text: "线路与会话", link: "/features/emby-lines/", icon: "material-symbols:link" },
           { text: "公告与邀请码", link: "/features/emby-codes/", icon: "material-symbols:confirmation-number" },
           { text: "求片系统", link: "/features/emby-requests/", icon: "material-symbols:movie-filter" },
+          { text: "缺集补漏", link: "/features/missing-fill/", icon: "material-symbols:playlist-add-check" },
           { text: "安全配置", link: "/features/emby-security/", icon: "material-symbols:security" },
         ],
       },

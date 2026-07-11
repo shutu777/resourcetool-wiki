@@ -76,6 +76,7 @@ export default defineThemeConfig({
             { text: "线路与会话", link: "emby-lines" },
             { text: "公告与邀请码", link: "emby-codes" },
             { text: "求片系统", link: "media-requests" },
+            { text: "缺集补漏", link: "missing-fill" },
             { text: "安全配置", link: "emby-security" },
           ],
         },

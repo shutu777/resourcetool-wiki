@@ -29,6 +29,7 @@ ResourceTool 采用付费授权模式，按功能分为两个版本：
 ::: tip 授权说明
 - 基础版授权码即可使用核心搜刮和播放功能，适合个人或家庭自用
 - 开服版在基础版之上解锁完整的 Emby 运营套件，适合对外提供服务的场景
+- 专业版适合需要 Telegram 本地资源搜索、求片自动找片和缺集补漏的用户
 - 授权码绑定设备，购买后可找管理员换绑
 :::
 
@@ -119,9 +120,9 @@ curl -fsSL https://get.docker.com | sh
        container_name: resource-tool
        restart: always
        network_mode: host
-      volumes:
-        - ./data:/data
-        - /var/run/docker.sock:/var/run/docker.sock
+       volumes:
+         - ./data:/data
+         - /var/run/docker.sock:/var/run/docker.sock
        environment:
          - TZ=Asia/Shanghai
          - RESOURCE_LICENSE=你的授权码
@@ -140,7 +141,7 @@ curl -fsSL https://get.docker.com | sh
 3. 启动服务
 
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 4. 结束
@@ -202,6 +203,13 @@ docker run -d \
 3. 在系统配置中测试代理连接（如已配置）
 4. 在插件库/助手中接入 115、HDHive、Telegram 等插件能力
 5. 在 115 助手中验证 Cookie、VIP 状态和容量信息
+
+::: tip 新手推荐设置
+- **先只配一个 115 内置账号**，确认转存和播放都正常后再加账号
+- **播放 QPS 保持 `1`**，这是兼顾速度和 115 风控的稳妥值
+- **自动备份设为每天 03:30，保留 7 天**，目标放到 115 的 `/rt_backup`
+- 个人使用先不要开启同播复制、缺集补漏和开服功能，用到时再开
+:::
 
 ---
 
