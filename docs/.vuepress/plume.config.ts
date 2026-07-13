@@ -61,6 +61,7 @@ export default defineThemeConfig({
           collapsed: false,
           items: [
             { text: "Emby 302 直链播放", link: "emby302" },
+            { text: "播放错误说明", link: "playback-errors" },
             { text: "115 云盘配置", link: "pan115" },
             { text: "Telegram 集成", link: "telegram" },
             { text: "HDHive 助手", link: "hdhive" },

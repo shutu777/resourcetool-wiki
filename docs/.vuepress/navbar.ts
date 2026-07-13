@@ -19,6 +19,7 @@ export default defineNavbarConfig([
         text: "核心配置",
         items: [
           { text: "Emby 播放全场景", link: "/features/emby302/", icon: "material-symbols:play-circle" },
+          { text: "播放错误说明", link: "/features/playback-errors/", icon: "material-symbols:error" },
           { text: "115 云盘配置", link: "/features/pan115/", icon: "material-symbols:cloud" },
           { text: "Telegram 集成", link: "/features/telegram/", icon: "material-symbols:cell-tower" },
           { text: "HDHive 助手", link: "/features/hdhive/", icon: "material-symbols:search" },
